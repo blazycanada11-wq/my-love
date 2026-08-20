@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#100910">
+<title>For Ishuuu ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap');
+:root{--pink:#ff5c9b;--light:#ffb8d2;--deep:#130a12;--card:#21121e;--cream:#fff6f7;--ink:#321925}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"DM Sans",sans-serif;background:var(--deep);color:#fff}
+body{overflow-x:hidden;background:radial-gradient(circle at 10% 0,#46152f 0,transparent 35%),radial-gradient(circle at 100% 90%,#42122c 0,transparent 38%),#100910}
+button{font:inherit;cursor:pointer}.app{min-height:100svh;position:relative}
+.bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.float{position:absolute;color:#ff8eb8;opacity:.18;animation:up 9s linear infinite}
+@keyframes up{0%{transform:translateY(105vh) rotate(0);opacity:0}15%{opacity:.2}100%{transform:translateY(-15vh) rotate(45deg);opacity:0}}
+.screen{min-height:100svh;padding:24px 16px 45px;display:none;position:relative;z-index:1;align-items:center;justify-content:center}.screen.active{display:flex}
+.wrap{width:min(1000px,100%);margin:auto}.center{text-align:center}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:#ffabc8;font-weight:700}.script{font-family:Pacifico,cursive;color:#ff9fc2}
+h1{font-size:clamp(45px,10vw,94px);line-height:.98;margin:10px 0 18px}h2{font-size:clamp(28px,6vw,54px);line-height:1.05;margin:8px 0 14px}p{line-height:1.65;color:#dbc9d4}
+.btn{border:0;border-radius:999px;padding:14px 21px;background:linear-gradient(135deg,#ff4f94,#ff8bb5);color:white;font-weight:700;box-shadow:0 12px 35px #ff4f9435;transition:.2s}.btn:hover{transform:translateY(-2px) scale(1.01)}.btn.secondary{background:#ffffff0c;border:1px solid #ffffff1d;box-shadow:none}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}.polaroid{background:#fff;color:#321925;padding:10px 10px 26px;box-shadow:0 25px 70px #0009;transform:rotate(2deg);max-width:460px;margin:auto}.polaroid img{display:block;width:100%;height:470px;object-fit:cover;border-radius:1px}.caption{font:20px Pacifico,cursive;text-align:center;margin-top:12px}
+.card{background:#ffffff0a;border:1px solid #ffffff16;border-radius:28px;padding:27px;box-shadow:0 18px 70px #0006;backdrop-filter:blur(14px)}.note{background:var(--cream);color:var(--ink);padding:30px;border-radius:9px;box-shadow:10px 20px 60px #0008;transform:rotate(-.5deg)}.note p{color:#5d404c}
+.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}.choice{padding:18px;border-radius:22px;background:#ffffff08;border:1px solid #ffffff17;color:#fff;text-align:left;transition:.2s}.choice:hover{background:#ff5c9b1d;border-color:#ff7aaa;transform:translateY(-2px)}.choice .emo{font-size:28px;display:block;margin-bottom:6px}.choice b{display:block}.choice small{color:#c3b0bb}
+.progress{height:6px;background:#ffffff12;border-radius:99px;overflow:hidden;margin-bottom:25px}.progress span{display:block;height:100%;background:linear-gradient(90deg,#ff5c9b,#ffc1d7);transition:.3s}
+.reaction{min-height:290px;display:flex;align-items:center;justify-content:center;text-align:center}.reaction .big{font-size:70px}
+.memories{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.memory{background:#fff;padding:9px 9px 23px;color:#321925;box-shadow:0 15px 45px #0008}.memory:nth-child(1){transform:rotate(-2deg)}.memory:nth-child(2){transform:rotate(1.2deg)}.memory:nth-child(3){transform:rotate(-1deg)}.memory img{display:block;width:100%;height:330px;object-fit:cover}.memory p{color:#321925;text-align:center;font:15px Pacifico,cursive;margin:10px 2px 0}
+.letter{background:#fff6f0;color:#351d27;padding:clamp(25px,5vw,55px);border-radius:10px;box-shadow:0 25px 90px #0009}.letter h2{font:34px Pacifico,cursive;color:#d8487e}.letter p{color:#563a47}.signature{font:24px Pacifico,cursive;color:#d8487e}
+.fade{animation:fade .5s ease both}@keyframes fade{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:none}}
+/* Bow and arrow game */
+.game{max-width:820px;margin:auto}
+.range{height:430px;position:relative;overflow:hidden;border-radius:28px;border:1px solid #ffffff17;background:radial-gradient(circle at 15% 75%,#6a234b 0,transparent 34%),radial-gradient(circle at 90% 20%,#4a1837 0,transparent 28%),linear-gradient(160deg,#21111f,#120a13)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(#fff8 1px,transparent 1px);background-size:38px 38px;opacity:.12}
+.target{position:absolute;right:10%;top:22%;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,#fff 0 15%,#ff5d9d 16% 34%,#fff 35% 52%,#ff5d9d 53% 71%,#fff 72%);box-shadow:0 0 35px #ff5d9d99;z-index:2}
+.target:after{content:"❤️";position:absolute;inset:0;display:grid;place-items:center;font-size:25px}
+.target.hit-heart{animation:heartHit .85s cubic-bezier(.2,1.4,.4,1) both}
+.target.hit-heart:after{animation:heartBeat .85s ease both}
+@keyframes heartHit{0%{transform:scale(1)}25%{transform:scale(1.28) rotate(-8deg);filter:drop-shadow(0 0 12px #ff6da8)}50%{transform:scale(.9) rotate(8deg)}75%{transform:scale(1.18) rotate(-4deg);filter:drop-shadow(0 0 35px #ff6da8)}100%{transform:scale(1)}}
+@keyframes heartBeat{0%{transform:scale(1)}35%{transform:scale(1.5)}65%{transform:scale(.75)}100%{transform:scale(1)}}
+.heartBurst{position:absolute;z-index:8;pointer-events:none;font-size:24px;animation:burst .9s ease-out forwards}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(.5)}100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1.25)}}
+.bow{position:absolute;left:62px;bottom:68px;width:110px;height:230px;z-index:3}
+.bow:before{content:"";position:absolute;left:25px;top:4px;width:86px;height:220px;border:8px solid #d99a65;border-left:0;border-radius:0 110px 110px 0;transform:rotate(-3deg);box-shadow:0 5px 18px #0006}
+.string{position:absolute;left:25px;top:10px;width:2px;height:218px;background:#f5e2d2;transform-origin:50% 50%}
+.grip{position:absolute;left:15px;top:94px;width:22px;height:62px;border-radius:8px;background:#8f5438;box-shadow:0 4px 8px #0005}
+.arrow{position:absolute;left:82px;top:199px;width:245px;height:5px;border-radius:8px;background:linear-gradient(90deg,#f4d9c4,#fff2e7);transform-origin:0 50%;cursor:grab;touch-action:none;z-index:6;box-shadow:0 0 5px #fff5}
+.arrow:before{content:"";position:absolute;right:-3px;top:-8px;border-left:17px solid #f4d9c4;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.arrow:after{content:"";position:absolute;left:0;top:-9px;border-right:19px solid #ff9fc3;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.arrow.flying{cursor:default;transition:none}
+.power{position:absolute;left:22px;bottom:25px;color:#f4d8e3;font-size:12px;letter-spacing:.12em}.hint{margin-top:13px;color:#cdb8c4;font-size:13px}
+.miss{animation:miss .5s ease}@keyframes miss{50%{filter:drop-shadow(0 0 12px #fff) }}
+@media(max-width:720px){.range{height:390px}.target{width:76px;height:76px;right:8%;top:20%}.bow{left:35px;bottom:50px;transform:scale(.82);transform-origin:left bottom}.arrow{left:55px;top:194px;width:205px}}
+@media(max-width:430px){.range{height:350px}.bow{left:18px;bottom:38px;transform:scale(.7);transform-origin:left bottom}.arrow{left:40px;top:190px;width:185px}}
+#gameMessage{min-height:30px;margin:15px 0;font-weight:700;color:#ffb1cd}.game-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:20}.confetti i{position:absolute;width:8px;height:14px;background:#ff72aa;animation:fall 2.5s ease-in forwards}@keyframes fall{to{transform:translateY(110vh) rotate(600deg)}}
+@media(max-width:720px){.hero{grid-template-columns:1fr;gap:22px}.polaroid{max-width:340px}.polaroid img{height:350px}.choices{grid-template-columns:1fr}.memories{grid-template-columns:1fr 1fr}.memory img{height:240px}.card{padding:21px}.range{height:360px}.target{right:9%;top:23%;width:75px;height:75px}.bow{left:15px;transform:scale(.8);transform-origin:left bottom}.arrow{left:25px;top:120px;width:210px}.row .btn{width:auto}.btn{min-height:48px}}
+@media(max-width:430px){.memories{grid-template-columns:1fr}.memory img{height:auto;max-height:390px}.range{height:330px}.target{right:8%;top:20%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app"><div class="bg" id="bg"></div>
+
+<section class="screen active" id="intro"><div class="wrap hero">
+<div class="fade"><div class="eyebrow">a tiny birthday universe</div><h1>Hey <span class="script">Ishuuu</span> ❤️</h1>
+<p>I could've just texted “Happy Birthday”… but apparently I decided to make an entire website instead. 😭</p>
+<p class="small">And yes, you have to interact with it.</p><button class="btn" onclick="show('envelope')">Okay, show me 👀</button></div>
+<div class="polaroid fade"><img src="assets/memory1.jpg" alt="A photo of us"><div class="caption">Devraj ♡ Ishuuu</div></div>
+</div></section>
+
+<section class="screen" id="envelope"><div class="wrap center"><div class="card fade"><div class="script" style="font-size:35px">For you...</div><div style="font-size:110px">💌</div><p>There is a very serious reason behind this website.</p><button class="btn" onclick="show('rules')">Open it… wait 👀</button></div></div></section>
+
+<section class="screen" id="rules"><div class="wrap"><div class="note fade"><div class="eyebrow" style="color:#d65a88">official instructions</div><h2 style="font:34px Pacifico,cursive;color:#d8487e">Before we start…</h2>
+<p>I have some very important questions for you.</p><p><b>Answer honestly.</b> I may or may not judge you. 😌</p><p>And there is a little game waiting for you later.</p><button class="btn" onclick="startQuiz()">Okayyy, I promise ❤️</button></div></div></section>
+
+<section class="screen" id="quiz"><div class="wrap"><div class="progress"><span id="bar"></span></div><div class="card fade">
+<div class="eyebrow" id="qcount"></div><h2 id="qtitle"></h2><p id="qsub"></p><div class="choices" id="choices"></div></div></div></section>
+
+<section class="screen" id="reaction"><div class="wrap"><div class="card reaction fade"><div><div class="big" id="reactionEmoji">🥰</div><h2 id="reactionTitle"></h2><p id="reactionText"></p><button class="btn" onclick="nextQ()">Okay, next →</button></div></div></div></section>
+
+<section class="screen" id="game"><div class="wrap game"><div class="center"><div class="eyebrow">level 2 • cupid duty</div><h2>Hit the heart. 🎯❤️</h2><p>Drag the arrow to aim. Let go to shoot. You get <b>3 tries</b>.</p></div>
+<div class="range" id="range"><div class="stars"></div><div class="target" id="target"></div><div class="bow"><div class="string"></div><div class="grip"></div></div><div class="arrow" id="arrow"></div><div class="power">DRAG + AIM + RELEASE</div></div>
+<div id="gameMessage" class="center">Your mission: make the heart blush. 😌</div><div class="game-actions"><button class="btn secondary" onclick="resetArrow()">Reset aim</button><button class="btn" id="continueBtn" style="display:none" onclick="show('memories')">I did it ❤️</button></div></div></section>
+
+<section class="screen" id="memories"><div class="wrap"><div class="center"><div class="eyebrow">our little scrapbook</div><h2><span class="script">Us</span> ❤️</h2><p>Some memories don't need a fancy explanation.</p></div>
+<div class="memories"><div class="memory"><img src="assets/memory1.jpg"><p>That night ✨</p></div><div class="memory"><img src="assets/memory2.jpg"><p>Just us 🥹</p></div><div class="memory"><img src="assets/memory3.jpg"><p>My favourite chaos ❤️</p></div></div>
+<div class="row" style="text-align:center;margin-top:28px"><button class="btn" onclick="show('finalq')">One last thing… 👀</button></div></div></section>
+
+<section class="screen" id="finalq"><div class="wrap center"><div class="card fade"><div class="script" style="font-size:35px">One last question…</div><h2>Do you know why I made all this?</h2><p>There are several answers. Only one is the real one.</p><div class="choices">
+<button class="choice" onclick="finish('Because it’s your birthday')"><span class="emo">🎂</span><b>Because it’s your birthday</b><small>Fair guess.</small></button>
+<button class="choice" onclick="finish('Because I had too much free time')"><span class="emo">😈</span><b>Because I had too much free time</b><small>Also… no.</small></button>
+<button class="choice" onclick="finish('Because you’re my favourite person')"><span class="emo">❤️</span><b>Because you’re my favourite person</b><small>Now you're getting it.</small></button>
+<button class="choice" onclick="finish('Because I’m dramatic')"><span class="emo">😭</span><b>Because I’m dramatic</b><small>Unfortunately true.</small></button>
+</div></div></div></section>
+
+<section class="screen" id="letter"><div class="wrap"><div class="letter fade">
+<h2>For my Ishuuu ❤️</h2>
+<p>Okay, serious part now.</p>
+<p>I still remember meeting you at Visarjan. I obviously didn't know then that one random day would turn into <b>us</b>, and that by the next Durga Puja in October, you would become such an important part of my life.</p>
+<p>We haven't been together forever. But somehow, you've already become part of so many little things in my everyday life.</p>
+<p>It's not only the big moments I love. It's the random conversations, the stupid jokes, the annoying each other, the little looks, the moments where we're doing absolutely nothing and somehow I'm still happy because it's you.</p>
+<p>You're cute, you're annoying, you're sometimes impossible 😭 — and somehow I wouldn't want to change any of that.</p>
+<p>I hope this birthday gives you a hundred reasons to smile. I hope this year is kind to you, gives you the things you're working for, and brings you moments you'll remember for a long time.</p>
+<p>And selfishly, I hope I get to be there for a lot of them.</p>
+<p>More random conversations. More stupid jokes. More memories. More photos we will pretend we don't look awkward in. More of us.</p>
+<p>Thank you for being you. And thank you for choosing me too.</p>
+<p><b>Happy Birthday, Ishuuu. ❤️</b></p>
+<p>I made this because a normal “Happy Birthday” didn't feel like enough.</p>
+<div class="signature">Always yours,<br>Devraj ❤️</div>
+</div><div class="row"><button class="btn" onclick="show('finish')">Okay… one final surprise 🎉</button></div></div></section>
+
+<section class="screen" id="finish"><div class="wrap center"><div class="cake" style="font-size:92px">🎂</div><h1 class="script" style="font-size:clamp(52px,12vw,110px)">Happy Birthday<br>Ishuuu ❤️</h1>
+<p>You made it. And yes, I hope you know how much I love you.</p><div class="row"><button class="btn" onclick="sendWhatsApp()">Send my answers to Devraj 💬</button><button class="btn secondary" onclick="location.reload()">Replay ↻</button></div><p class="small" style="margin-top:18px">Made with way too much love by Devraj ❤️</p></div></section>
+
+<div class="confetti" id="confetti"></div>
+</div>
+<script>
+/* PUT DEVRAJ'S WHATSAPP NUMBER HERE — digits only, with country code. */
+const WHATSAPP_NUMBER = "917977158126";
+
+const questions=[
+{t:"Our perfect date is…",s:"Pick what you'd actually choose ❤️",o:[["🌃","Night drive"],["🍿","Movie night"],["🍝","Dinner date"],["🏞️","Random adventure"]]},
+{t:"Okay, very important: who is more annoying? 😭",s:"Be honest. There is a correct answer.",o:[["😇","You"],["😈","Me"],["🤝","Both of us"],["🫣","I refuse to answer"]]},
+{t:"What should we do on a lazy day?",s:"No judgement here.",o:[["🛌","Sleep"],["🍕","Order food"],["🎬","Watch something"],["💑","Just hang out"]]},
+{t:"Pick the one that feels most like us.",s:"Don't overthink it.",o:[["😂","Laughing at nonsense"],["❤️","Being stupid together"],["📸","Taking random photos"],["🌙","Late-night talks"]]},
+{t:"If I annoy you… what do you do?",s:"Be honest 😌",o:[["🙄","Ignore me"],["😂","Annoy me back"],["🥺","Forgive me"],["❤️","Still love me"]]}
+];
+let qi=0,answers=[],tries=3,gameHit=false,dragging=false,origin=null;
+function makeHearts(){let b=document.getElementById('bg');for(let i=0;i<22;i++){let e=document.createElement('span');e.className='float';e.textContent=Math.random()>.25?'♥':'✦';e.style.left=Math.random()*100+'%';e.style.fontSize=(12+Math.random()*22)+'px';e.style.animationDelay=Math.random()*9+'s';b.appendChild(e)}}makeHearts();
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function startQuiz(){qi=0;answers=[];show('quiz');renderQ()}
+function renderQ(){let q=questions[qi];document.getElementById('qcount').textContent=`Question ${qi+1} of ${questions.length}`;document.getElementById('qtitle').textContent=q.t;document.getElementById('qsub').textContent=q.s;document.getElementById('bar').style.width=(qi/questions.length*100)+'%';let c=document.getElementById('choices');c.innerHTML='';q.o.forEach((o,i)=>{let b=document.createElement('button');b.className='choice';b.innerHTML=`<span class="emo">${o[0]}</span><b>${o[1]}</b>`;b.onclick=()=>pick(i,o[1]);c.appendChild(b)})}
+function pick(i,label){answers.push({q:questions[qi].t,a:label});show('reaction');let r=[['🥰','Hmm… interesting choice 👀','I’m definitely remembering that one.'],['😂','HAHA okay then…','You really chose that. Respect.'],['😌','I knew you would pick that.','We might actually be compatible.'],['❤️','Awww.','Okay, that was a very cute answer.']][(i+qi)%4];document.getElementById('reactionEmoji').textContent=r[0];document.getElementById('reactionTitle').textContent=r[1];document.getElementById('reactionText').textContent=r[2]}
+function nextQ(){qi++;if(qi<questions.length){show('quiz');renderQ()}else{setupGame();show('game')}}
+function setupGame(){tries=3;gameHit=false;document.getElementById('continueBtn').style.display='none';document.getElementById('gameMessage').textContent='Your mission: make the heart blush. 😌';resetArrow()}
+const range=document.getElementById('range'),arrow=document.getElementById('arrow');
+function resetArrow(){arrow.style.transform='rotate(0deg)';arrow.style.left='30px';arrow.style.top='98px';arrow.style.opacity='1';}
+function pointerAngle(e){
+ let r=range.getBoundingClientRect(), ax=r.left+82, ay=r.top+199;
+ let x=(e.clientX??e.touches?.[0]?.clientX)-ax;
+ let y=(e.clientY??e.touches?.[0]?.clientY)-ay;
+ return Math.max(-42,Math.min(42,Math.atan2(y,x)*180/Math.PI));
+}
+arrow.addEventListener('pointerdown',e=>{
+ if(gameHit||tries<=0||arrow.classList.contains('flying'))return;
+ dragging=true;arrow.setPointerCapture(e.pointerId);arrow.style.cursor='grabbing';
+});
+arrow.addEventListener('pointermove',e=>{
+ if(!dragging)return;
+ let a=pointerAngle(e);
+ arrow.style.transform=`rotate(${a}deg)`;
+});
+arrow.addEventListener('pointerup',e=>{
+ if(!dragging)return;
+ dragging=false;arrow.style.cursor='grab';shoot();
+});
+arrow.addEventListener('pointercancel',()=>{if(dragging){dragging=false;resetArrow()}});
+
+function shoot(){
+ if(gameHit||tries<=0||arrow.classList.contains('flying'))return;
+ let target=document.getElementById('target');
+ let rangeR=range.getBoundingClientRect(), targetR=target.getBoundingClientRect();
+ let startX=82, startY=199;
+ let endX=(targetR.left+targetR.width/2)-rangeR.left;
+ let endY=(targetR.top+targetR.height/2)-rangeR.top;
+ let dx=endX-startX,dy=endY-startY;
+ let distance=Math.hypot(dx,dy);
+ let ideal=Math.atan2(dy,dx)*180/Math.PI;
+ let chosen=parseFloat((arrow.style.transform.match(/-?\d+(\.\d+)?/)||['0'])[0]);
+ let diff=Math.abs(chosen-ideal);
+ tries--;
+
+ arrow.classList.add('flying');
+ arrow.style.transform=`translate(0px,0px) rotate(${chosen}deg)`;
+ arrow.style.left=startX+'px';
+ arrow.style.top=startY+'px';
+
+ const duration=Math.min(1050,Math.max(620,distance*2.1));
+ const start=performance.now();
+ function fly(now){
+   let t=Math.min(1,(now-start)/duration);
+   // Smooth acceleration/deceleration, like a real shot.
+   let ease=1-Math.pow(1-t,3);
+   arrow.style.left=(startX+dx*ease)+'px';
+   arrow.style.top=(startY+dy*ease)+'px';
+   if(t<1){requestAnimationFrame(fly);return}
+   if(diff<13){
+      hitHeart();
+   }else{
+      arrow.classList.add('miss');
+      document.getElementById('gameMessage').textContent=tries?
+        `So close 😭 You have ${tries} ${tries===1?'try':'tries'} left. Try a little higher/lower.`:
+        'Cupid needs a little practice 😭❤️';
+      setTimeout(()=>{
+        arrow.classList.remove('miss');
+        if(tries)resetArrow();
+        else finishGame(false);
+      },600);
+   }
+ }
+ requestAnimationFrame(fly);
+}
+
+function hitHeart(){
+ gameHit=true;
+ let target=document.getElementById('target');
+ target.classList.remove('hit-heart'); void target.offsetWidth; target.classList.add('hit-heart');
+ createHeartBurst(target);
+ document.getElementById('gameMessage').textContent='🎯 BULLSEYE! You hit the heart! ❤️';
+ answers.push({q:'Bow & arrow game',a:'Hit the heart 🎯❤️'});
+ launchConfetti();
+ document.getElementById('continueBtn').style.display='inline-block';
+ arrow.style.opacity='.95';
+ setTimeout(()=>{arrow.style.opacity='0'},350);
+}
+function createHeartBurst(target){
+ let r=target.getBoundingClientRect(),rr=range.getBoundingClientRect();
+ for(let i=0;i<16;i++){
+   let e=document.createElement('span');e.className='heartBurst';e.textContent=i%2?'❤️':'💗';
+   e.style.left=(r.left-rr.left+r.width/2-10)+'px';
+   e.style.top=(r.top-rr.top+r.height/2-10)+'px';
+   let a=Math.random()*Math.PI*2, d=55+Math.random()*85;
+   e.style.setProperty('--bx',Math.cos(a)*d+'px');e.style.setProperty('--by',Math.sin(a)*d+'px');
+   range.appendChild(e);setTimeout(()=>e.remove(),1000);
+ }
+}
+function finishGame(hit){
+ if(!answers.some(x=>x.q==='Bow & arrow game')){
+   answers.push({q:'Bow & arrow game',a:hit?'Hit the heart 🎯❤️':'Played the game — missed all shots'});
+ }
+ document.getElementById('continueBtn').style.display='inline-block';
+}
+function resetArrow(){
+ if(gameHit)return;
+ arrow.classList.remove('flying','miss');arrow.style.opacity='1';
+ arrow.style.left='82px';arrow.style.top='199px';arrow.style.transform='rotate(0deg)';
+}
+
+function finish(choice){answers.push({q:'Why did Devraj make this?',a:choice});show('letter')}
+function launchConfetti(){let c=document.getElementById('confetti');for(let i=0;i<75;i++){let e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=(-10-Math.random()*30)+'px';e.style.animationDelay=Math.random()*1.2+'s';e.style.transform=`rotate(${Math.random()*360}deg)`;c.appendChild(e)}setTimeout(()=>c.innerHTML='',3300)}
+function sendWhatsApp(){if(WHATSAPP_NUMBER.includes('X')){alert('First put your WhatsApp number in WHATSAPP_NUMBER at the top of the script.');return}let text='Hey Devraj ❤️ I finished your birthday surprise!\\n\\nMy answers:\\n'+answers.map((x,i)=>`${i+1}. ${x.q}\\n→ ${x.a}`).join('\\n\\n')+'\\n\\nAnd yes… I made it to the end. 🎂❤️';location.href='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(text)}
+</script>
+</body>
+</html>
